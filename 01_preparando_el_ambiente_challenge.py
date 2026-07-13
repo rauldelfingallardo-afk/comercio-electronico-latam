@@ -11,15 +11,18 @@ Original file is located at
 
 !pip install -q langchain langchain-google-genai google-generativeai
 
+!pip install -q groq langchain-groq
+
 from google.colab import userdata
-GEMINI_API_KEY = userdata.get('GEMINI_API_KEY')
+import os
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+os.environ["GROQ_API_KEY"] = userdata.get('GROQ_API_KEY')
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    temperature=2,
-    google_api_key=GEMINI_API_KEY
+from langchain_groq import ChatGroq
+
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    temperature=1
 )
 
 respuesta = llm.invoke("en cinco líneas, ¿Qué es negocio de e-commerce?")
