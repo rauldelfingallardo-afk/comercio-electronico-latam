@@ -55,6 +55,22 @@ def triaje(mensaje: str) -> Dict:
   )
   return salida.model_dump()
 
+import time
+from langchain_core.messages import SystemMessage, HumanMessage
+from typing import Dict
+
+# Re-initialize chain_de_triaje and triaje to ensure it uses the updated llm
+chain_de_triaje = llm.with_structured_output(TriajeOut)
+
+def triaje(mensaje: str) -> Dict:
+  salida: TriajeOut = chain_de_triaje.invoke(
+      [
+          SystemMessage(content=PROMPT_TRIAJE_ECOMMERCE),
+          HumanMessage(content=mensaje)
+      ]
+  )
+  return salida.model_dump()
+
 mensajes_de_prueba = [
 	"Hice una compra hace una semana para una dirección en zona urbana y el paquete todavía no me llegó, ¿dónde está?",
 	"Me equivoqué al escribir la dirección de mi pedido, puse Calle Mexico 123 y era 1234, ¡ayuda antes de que lo envíen!",
@@ -76,6 +92,7 @@ mensajes_de_prueba = [
 for pregunta in mensajes_de_prueba:
   r = triaje(pregunta)
   print(f"{pregunta} -> {r}")
+  time.sleep(1)
 
 """# RAG"""
 
@@ -107,9 +124,10 @@ for chunk in chunks:
 
 len(chunks)
 
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+!pip install -q langchain-huggingface sentence-transformers
 
-modelo_embeddings = GoogleGenerativeAIEmbeddings(
-    model="models/gemini-embedding-001",
-    google_api_key=GEMINI_API_KEY
+from langchain_huggingface import HuggingFaceEmbeddings
+
+modelo_embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
