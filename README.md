@@ -46,6 +46,7 @@ El proyecto requiere conectarse a Groq. Sigue estos pasos dentro de Colab:
 ### Paso 3: Carga de Archivos PDF
 1. Haz clic en el icono de la **carpeta (Archivos)** en la barra lateral izquierda.
 2. Arrastra y suelta tus archivos PDF de e-commerce en ese panel para que el script `pymupdf` pueda procesarlos.
+3. Los archivos en formato .pdf están en el siguiente link= https://drive.google.com/drive/folders/1DREqdKWG4ziR7MJqUmM-58W373eDCbYQ?usp=sharing
 
 ### Paso 4: Instalar Dependencias y Ejecutar
 1. Ejecuta la primera celda del cuaderno que contiene las instalaciones del sistema:
