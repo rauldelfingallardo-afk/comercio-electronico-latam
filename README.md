@@ -35,7 +35,7 @@ Sigue estas instrucciones para clonar y ejecutar el notebook del **desafío-uno*
 2. Ve a [Google Colab](https://google.com).
 3. En la ventana emergente, selecciona la pestaña **GitHub**.
 4. Pega la URL del repositorio y presiona Enter.
-5. Haz clic sobre el archivo `.ipynb` de este proyecto completo para abrirlo.
+5. Haz clic sobre el archivo 06_Desafio_uno_Challenge_COMPLETO.ipynb` de este proyecto completo para abrirlo.
 
 ### Paso 2: Configurar las Credenciales (API Keys)
 El proyecto requiere conectarse a Groq. Sigue estos pasos dentro de Colab:
