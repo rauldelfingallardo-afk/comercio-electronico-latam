@@ -22,6 +22,7 @@ El sistema procesa documentación comercial en formato PDF utilizando una arquit
 *   **Base de Datos Vectorial:** `faiss-cpu` para el almacenamiento y búsqueda rápida de embeddings.
 *   **Validación de Datos:** `pydantic` para garantizar estructuras de datos consistentes y seguras.
 *   **Soporte de Desarrollo:** `pylance` (configuración recomendada para el entorno de desarrollo local opcional).
+*   **Interfaz Gráfica:** 'gradio' https://56e15f4439d47dee33.gradio.live
 
 ---
 
